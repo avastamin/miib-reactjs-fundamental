@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+}
+
+.HeaderWrap {
+    background-color: #222;
+}
+.App-header {
+ display: grid;
+ grid-template-columns: 66.667% 33.334%;
+  height: 50px;
+  padding: 20px;
+  color: white;
+}
+nav {
+  display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+nav a {
+  width: 50%;
+padding: 10px;
+color: #fff;
+text-decoration: none;
+border: 1px solid #ddd;
+max-height: 20px;
+margin-right: 18px;
+}
+.App-title {
+  font-size: 1.5em;
+  font-size: 1.5em;
+padding-top: 0px;
+margin-top: 0px;
+text-align: left;
+}
+
+.App-intro {
+  font-size: large;
+}
+.Listcontainer{
+   background-color: #ffffff;
+   display: grid;
+   grid-template-columns: auto auto auto;
+   padding: 10px;
+   grid-column-gap: 10px;
+   grid-row-gap: 10px;
+}
+.Portfolio{
+  border: 1px solid #cccccc;
+  padding: 20px;
+  text-align: center;
+}
+img{
+  border-style: none;
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+button a {
+    text-decoration: none;
+    font-size: 14px;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
