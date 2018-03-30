@@ -2,18 +2,19 @@ import React from 'react';
 
 class Portfolio extends React.Component {
   render() {
-    console.log(this.props);
+    const {post, handleDelete, handleSingleView} = this.props;
+
     return (
       <div className="Portfolio">
         <div className="image-wrapper">
-          <img width="450" height="250" src={this.props.post.image} alt="portfolio" />
+          <img width="450" height="250" src={post.image} alt="portfolio" />
         </div>
         <div className="content-area">
-          <h2>{this.props.post.title}</h2>
-          <p>{this.props.post.text}</p>
-          <button onClick={()=>this.props.handleDelete()}>Delete</button>
+          <h2>{post.title}</h2>
+          <p>{post.text}</p>
         </div>
-
+        <button onClick={()=>handleDelete(post.id)}>delete</button>
+        <button onClick={()=>handleSingleView(post.id)}>View</button>
       </div>
     )
   }
