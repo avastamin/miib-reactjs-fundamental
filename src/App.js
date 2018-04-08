@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Portfolio from './components/Portfolio'
+import SingleView from './components/SingleView'
+import { Switch, Route } from 'react-router'
 import './App.css';
 
 class App extends Component {
@@ -50,16 +52,25 @@ class App extends Component {
           <h1 className="App-title">Reactjs অ্যাপ্লিকেশান এ স্বাগতম</h1>
         </header>
         </div>
-        <div className="Listcontainer">
-        {this.state.posts.map(post => (
-            <Portfolio key={post.id} post ={post}
+        <Switch>
+          <Route exact path="/" render={()=>(
+            <Portfolio {...this.state}
               handleDelete={this.handleDelete}
-              handleSingleView={this.handleSingleView}
+              handleView={this.handleView}
             />
-        ))}
-        </div>
+          )}/>
+          <Route path="/:postID" render={(props)=> (
+            <SingleView {...this.state} {...props}/>
+          )}/>
+
+        </Switch>
       </div>
     );
   }
+}
+const About = () => {
+  return (
+    <div>Coming from about</div>
+  )
 }
 export default App;
