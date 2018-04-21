@@ -9,26 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      posts: [
-        {
-        "id": 1501798834150,
-        "title": "MatLang one",
-        "image": "http://via.placeholder.com/450x250",
-        "text": "quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus"
-      },
-      {
-        "id": 1501798834151,
-        "title": "MatLang two",
-        "image": "http://via.placeholder.com/450x250",
-        "text": "quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus"
-      },
-      {
-        "id": 1501798834152,
-        "title": "MatLang three",
-        "image": "http://via.placeholder.com/450x250",
-        "text": "quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus"
-      },
-      ]
+      posts: []
     }
     this.handleDelete = this.handleDelete.bind(this)
     this.handleSingleView = this.handleSingleView.bind(this)
@@ -44,6 +25,16 @@ class App extends Component {
       posts: this.state.posts.filter(post => post.id ===id)
     })
   }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/posts').then(res=>res.json())
+    .then(data=>{
+     this.setState({
+      posts: data
+     })
+    })
+  }
+
   render() {
     return (
       <div className="App">
